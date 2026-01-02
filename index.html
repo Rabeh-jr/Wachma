@@ -111,6 +111,21 @@
       font-size: 0.85rem;
       opacity: 0.5;
     }
+  
+    .card { cursor: pointer; transition: transform 0.15s ease, box-shadow 0.15s ease; }
+    .card.selected { outline: 2px solid #1e1e1e; }
+    .cart {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #1e1e1e;
+      color: #fff;
+      padding: 16px 20px;
+      border-radius: 16px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      font-weight: 600;
+      display: none;
+    }
   </style>
 </head>
 <body>
@@ -125,7 +140,7 @@
       <button class="btn btn-secondary">View Menu</button>
     </div>
 
-    <section class="menu">
+    <section class="menu" id="menu">
       <div class="card">
         <h3>Espresso</h3>
         <p>Strong & bold</p>
@@ -150,7 +165,43 @@
 
     <footer>
       © 2026 Wachma
-    </footer>
+        </footer>
+
+    <div class="cart" id="cart">🛒 0 items — 0.000</div>
+
+    <script>
+      const cards = document.querySelectorAll('.card');
+      const cartEl = document.getElementById('cart');
+      let cart = [];
+
+      cards.forEach(card => {
+        card.addEventListener('click', () => {
+          const name = card.querySelector('h3').innerText;
+          const price = parseFloat(card.querySelector('.price').innerText);
+
+          card.classList.toggle('selected');
+
+          const index = cart.findIndex(i => i.name === name);
+          if (index >= 0) {
+            cart.splice(index, 1);
+          } else {
+            cart.push({ name, price });
+          }
+
+          updateCart();
+        });
+      });
+
+      function updateCart() {
+        if (cart.length === 0) {
+          cartEl.style.display = 'none';
+          return;
+        }
+        const total = cart.reduce((sum, i) => sum + i.price, 0).toFixed(3);
+        cartEl.innerText = `🛒 ${cart.length} item(s) — ${total}`;
+        cartEl.style.display = 'block';
+      }
+    </script>
   </main>
 </body>
 </html>
