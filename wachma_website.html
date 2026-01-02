@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WACHMA ☕</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #fff8ee;
+      color: #1e1e1e;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .app {
+      width: 100%;
+      max-width: 1100px;
+      padding: 40px 24px;
+      text-align: center;
+    }
+
+    .logo {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 800;
+      letter-spacing: 4px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+
+    .subtitle {
+      margin-top: 16px;
+      font-size: 1.1rem;
+      opacity: 0.7;
+    }
+
+    .actions {
+      margin-top: 48px;
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn {
+      padding: 14px 26px;
+      border-radius: 999px;
+      border: none;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: transform 0.15s ease, box-shadow 0.15s ease;
+    }
+
+    .btn-primary {
+      background: #1e1e1e;
+      color: #fff;
+    }
+
+    .btn-secondary {
+      background: #fff;
+      color: #1e1e1e;
+      border: 1px solid #e5e5e5;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    }
+
+    .menu {
+      margin-top: 64px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #fff;
+      border-radius: 20px;
+      padding: 24px;
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    }
+
+    .card h3 {
+      margin: 0 0 8px;
+      font-size: 1.2rem;
+    }
+
+    .card p {
+      margin: 0 0 16px;
+      opacity: 0.7;
+    }
+
+    .price {
+      font-weight: 700;
+    }
+
+    footer {
+      margin-top: 80px;
+      font-size: 0.85rem;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <main class="app">
+    <div class="logo">
+      WACHMA <span>☕</span>
+    </div>
+    <div class="subtitle">Cinematic coffee experience</div>
+
+    <div class="actions">
+      <button class="btn btn-primary">Start Order</button>
+      <button class="btn btn-secondary">View Menu</button>
+    </div>
+
+    <section class="menu">
+      <div class="card">
+        <h3>Espresso</h3>
+        <p>Strong & bold</p>
+        <div class="price">2.000</div>
+      </div>
+      <div class="card">
+        <h3>Americano</h3>
+        <p>Smooth & classic</p>
+        <div class="price">2.000</div>
+      </div>
+      <div class="card">
+        <h3>Cappuccino</h3>
+        <p>Milky & balanced</p>
+        <div class="price">2.500</div>
+      </div>
+      <div class="card">
+        <h3>Orange Juice</h3>
+        <p>Fresh & cold</p>
+        <div class="price">2.500</div>
+      </div>
+    </section>
+
+    <footer>
+      © 2026 Wachma
+    </footer>
+  </main>
+</body>
+</html>
